@@ -8,6 +8,7 @@ import { buildConfig } from 'payload/config'
 import Users from './collections/Users'
 import Todo from './collections/Todo'
 import Category from './collections/Category'
+import Log from './collections/Log'
 
 export default buildConfig({
   cors : "*",
@@ -16,7 +17,7 @@ export default buildConfig({
     bundler: webpackBundler(),
   },
   editor: slateEditor({}),
-  collections: [Users, Todo, Category],
+  collections: [Users, Todo, Category, Log],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },
