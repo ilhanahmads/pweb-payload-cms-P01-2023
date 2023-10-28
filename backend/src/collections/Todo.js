@@ -2,15 +2,15 @@ import payload from 'payload';
 
 /** @type {import('payload/types').CollectionConfig} */
 const Todo = {
-    slug : "Todo",
+    slug: "Todo",
     access: {
-        read : () => true,
-        create : () => true,
-        update : () => true,
-        delete : () => true
+        read: () => true,
+        create: () => true,
+        update: () => true,
+        delete: () => true,
     },
-    admin : {
-        useAsTitle : "nama"
+    admin: {
+        useAsTitle: "nama",
     },
     hooks: {
         afterOperation: [
@@ -20,8 +20,8 @@ const Todo = {
                         collection: "Log",
                         data: {
                             collectionName: "todo",
-                            action : "create",
-                            timestamp: new Date()
+                            action: "create",
+                            timestamp: new Date(),
                         },
                     });
                 } else if (args.operation == "update") {
@@ -29,8 +29,8 @@ const Todo = {
                         collection: "Log",
                         data: {
                             collectionName: "todo",
-                            action : "update",
-                            timestamp: new Date()
+                            action: "update",
+                            timestamp: new Date(),
                         },
                     });
                 } else if (args.operation == "delete") {
@@ -38,15 +38,15 @@ const Todo = {
                         collection: "Log",
                         data: {
                             collectionName: "todo",
-                            action : "delete",
-                            timestamp: new Date()
+                            action: "delete",
+                            timestamp: new Date(),
                         },
                     });
-                } 
+                }
             },
         ],
     },
-    fields : [
+    fields: [
         {
             name: "nama",
             type: "text",
@@ -64,24 +64,11 @@ const Todo = {
             label: "Due Date",
         },
         {
-            name: "priority",
-            type: "select",
-            label: "Priority",
-            options: [
-                {
-                    label: 'High',
-                    value: 'high',
-                },
-                {
-                    label: 'Medium',
-                    value: 'medium',
-                },
-                {
-                    label: 'Low',
-                    value: 'low',
-                },
-            ],
-            defaultValue: 'medium',
+            name: "category",
+            type: "relationship",
+            relationTo: "Category",
+            hasMany: true,
+            label: "Category",
         },
         {
             name: 'completed',
@@ -99,7 +86,7 @@ const Todo = {
             ],
             defaultValue: 'no',
         },
-    ]
+    ],
 }
 
 export default Todo
