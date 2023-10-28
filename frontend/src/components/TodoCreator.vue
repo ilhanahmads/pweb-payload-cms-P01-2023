@@ -1,6 +1,6 @@
 <template>
   <div class="todo-creator">
-    <button @click="openModal">Create To-Do</button>
+    <button @click="openModal" class="create-button">Create To-Do</button>
 
     <!-- Modal -->
     <div v-if="showModal" class="modal-overlay">
@@ -88,6 +88,22 @@ export default {
 </script>
 
 <style scoped>
+.create-button {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1.2rem;
+  background-color: #41b080;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.create-button:hover {
+  background-color: #218c5f;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;

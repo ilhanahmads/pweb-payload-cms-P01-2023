@@ -38,7 +38,7 @@ export default {
           id: todo.id,
           todo: todo.nama,
           isCompleted: todo.completed === 'yes',
-          dueDate: new Date(todo.dueDate),
+          dueDate: Date(todo.dueDate),
           category: todo.category[0].name,
         }));
         this.todoList = todos;
@@ -84,7 +84,7 @@ export default {
 
 <template>
   <main>
-    <h1>Create To-do</h1>
+    <h1>Let's do our best today!</h1>
     <TodoCreator @create-todo="createTodo" />
     <ul class="todo-list" v-if="todoList.length > 0">
       <TodoItem

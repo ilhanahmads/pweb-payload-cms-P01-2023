@@ -29,6 +29,7 @@ onMounted(() => {
     });
 });
 
+const date = Date;
 defineEmits(["toggle-complete", "edit-todo", "update-todo", "delete-todo"]);
 </script>
 
@@ -69,10 +70,10 @@ defineEmits(["toggle-complete", "edit-todo", "update-todo", "delete-todo"]);
       <input
         v-if="todo.isEditing"
         type="date"
-        v-model="todo.deadline"
-        @change="$emit('update-todo', todo.deadline, index)"
+        v-model="todo.dueDate"
+        @change="$emit('update-todo', todo.dueDate, index)"
       />
-      <span v-else>{{ todo.deadline }}</span>
+      <span v-else>{{ new date(todo.dueDate).toLocaleDateString() }}</span>
     </div>
 
     <div class="todo-actions">
