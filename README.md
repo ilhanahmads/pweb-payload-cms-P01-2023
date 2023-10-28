@@ -1,4 +1,4 @@
-# Praktikum Modul 1 Pemrograman Web Kelompok P01
+# Praktikum PayloadCMS Pemrograman Web Kelompok P01
 
 ## Anggota Kelompok
 - Muhammad Harvian Dito Syahputra	5027221039
